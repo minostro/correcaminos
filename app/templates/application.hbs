@@ -3,7 +3,7 @@
     <div class="twelve columns">
       <nav class="primary-nav">
         <ul>
-            <a>Users</a>
+            {{#link-to 'recorridos'}}Recorridos{{/link-to}}
         </ul>
       </nav>
     </div>
@@ -17,10 +17,5 @@
         {{outlet}}
       <div>
     </section>
-
-    {{#each model}}
-      <div>{{id}} - {{name}}</div>
-    {{/each}}
-
   </div>
 </div>
