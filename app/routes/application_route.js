@@ -1,5 +1,5 @@
 Despachador.ApplicationRoute = Ember.Route.extend({
   model: function() {
-    return Despachador.Tests;
+    return Despachador.Recorrido.find();
   }
  });

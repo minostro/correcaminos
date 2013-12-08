@@ -1,2 +1,26 @@
-<h1>Hallo! Milton    Ivania</h1>
-{{model}}
+<header class="header fixed">
+  <div class="row">
+    <div class="twelve columns">
+      <nav class="primary-nav">
+        <ul>
+            <a>Users</a>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class='content clearfix'>
+  <div class='container clearfix'>
+    <section class='main'>
+      <div class='container clearfix' id='dynamic_content'>
+        {{outlet}}
+      <div>
+    </section>
+
+    {{#each model}}
+      <div>{{id}} - {{name}}</div>
+    {{/each}}
+
+  </div>
+</div>
