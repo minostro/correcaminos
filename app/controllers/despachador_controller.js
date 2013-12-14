@@ -19,7 +19,14 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
 
   actions: {
     create: function(){
-      console.log(this.selectedRecorrido.get('id'));
+      var despacho = Correcaminos.Despacho.create({
+        dia: "2013-12-12",
+        recorrido: this.selectedRecorrido,
+        maquina: this.selectedMaquina,
+        chofer: this.selectedChofer
+      });
+      console.log(despacho);
+      despacho.save();
     }
   }
 });

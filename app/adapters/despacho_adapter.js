@@ -14,5 +14,20 @@ Correcaminos.Despacho.adapter = Ember.Adapter.create({
     ];
     recordArray.load(klass, data);
     return recordArray;
+  },
+  createRecord: function(record){
+    return record.didCreateRecord();
   }
 });
+
+  // createRecord: function(record){
+  //   var data = removeBlanks(record.toJSON());
+  //   return $.ajax({
+  //     method: 'post',
+  //     url: "/api/v1/invoices",
+  //     data: data,
+  //     success: function(data){
+  //       record.didCreateRecord();
+  //     }
+  //   });
+  // },
