@@ -17,7 +17,11 @@ Correcaminos.Despacho.adapter = Ember.Adapter.create({
   },
   createRecord: function(record){
     return record.didCreateRecord();
+  },
+  deleteRecord: function(record){
+    return record.didDeleteRecord();
   }
+
 });
 
   // createRecord: function(record){
@@ -29,5 +33,15 @@ Correcaminos.Despacho.adapter = Ember.Adapter.create({
   //     success: function(data){
   //       record.didCreateRecord();
   //     }
+  //   });
+  // },
+
+  //   deleteRecord: function(record){
+  //   return $.ajax({
+  //     data: {
+  //       'my_data': record.get('comment')
+  //     },
+  //     method: 'put',
+  //     url: '/api/v20/my_endpoint/%@'.fmt(record.get('id'))
   //   });
   // },

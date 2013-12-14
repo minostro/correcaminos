@@ -25,8 +25,16 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
         maquina: this.selectedMaquina,
         chofer: this.selectedChofer
       });
-      console.log(despacho);
       despacho.save();
+    },
+    delete: function(){
+      var controller = this;
+      this.filterProperty('isSelected').forEach(function(itemController){
+        var model = itemController.get('model');
+        model.deleteRecord();
+        model.save();
+        controller.removeObjects(itemController);
+      })
     }
   }
 });
