@@ -1,0 +1,32 @@
+<div class="container">
+  <div>
+    <span>Recorrido: </span>
+    {{view Ember.Select
+       content=recorridos
+       optionValuePath="content.id"
+       optionLabelPath="content.name"
+       selection=selectedRecorrido
+       value=selectedRecorrido
+       prompt="Seleccione un recorrido"}}
+
+    <span>M&aacute;quina: </span>
+    {{view Ember.Select
+       content=maquinas
+       optionValuePath="content.id"
+       optionLabelPath="content.patente"
+       selection=selectedMaquina
+       value=selectedMaquina
+       prompt="Seleccione una máquina"}}
+
+    <span>Chofer: </span>
+    {{view Ember.Select
+       content=choferes
+       optionValuePath="content.id"
+       optionLabelPath="content.nombre"
+       selection=selectedChofer
+       value=selectedChofer
+       prompt="Seleccione un chofer"}}
+
+    <button {{action "create"}}>✓ Crear</button>       
+  </div>
+</div>

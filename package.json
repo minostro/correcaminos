@@ -1,7 +1,7 @@
 {
-  "name": "despachador",
+  "name": "Correcaminos",
   "version": "0.0.1",
-  "description": "Frontend UI for Despachador",
+  "description": "Frontend UI for Correcaminos",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/minostro/despachador.git"
+    "url": "git://github.com/minostro/Correcaminos.git"
   },
   "author": "Milton Inostroza",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/minostro/despachador/issues"
+    "url": "https://github.com/minostro/Correcaminos/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

@@ -1,6 +1,6 @@
 (function() {
 
-window.Despachador = Ember.Application.create();
+window.Correcaminos = Ember.Application.create();
 
 
 })();
@@ -9,7 +9,30 @@ window.Despachador = Ember.Application.create();
 
 var attr = Ember.attr;
 
-Despachador.Recorrido = Ember.Model.extend({
+Correcaminos.Chofer = Ember.Model.extend({
+  id: attr(),
+  nombre: attr(),
+  apellido: attr()  
+});
+
+})();
+
+(function() {
+
+var attr = Ember.attr;
+
+Correcaminos.Maquina = Ember.Model.extend({
+  id: attr(),
+  patente: attr()
+});
+
+})();
+
+(function() {
+
+var attr = Ember.attr;
+
+Correcaminos.Recorrido = Ember.Model.extend({
   id: attr(),
   name: attr()
 });
@@ -18,7 +41,7 @@ Despachador.Recorrido = Ember.Model.extend({
 
 (function() {
 
-Despachador.Tests = {
+Correcaminos.Tests = {
 	data: [1, 3, 4]
 }
 
@@ -26,7 +49,7 @@ Despachador.Tests = {
 
 (function() {
 
-Despachador.ApplicationController = Ember.ObjectController.extend({
+Correcaminos.ApplicationController = Ember.ObjectController.extend({
   searchTerm: null 
 });
 
@@ -34,7 +57,65 @@ Despachador.ApplicationController = Ember.ObjectController.extend({
 
 (function() {
 
-Despachador.Recorrido.adapter = Ember.Adapter.create({
+Correcaminos.DespachadorController = Ember.ObjectController.extend({
+  selectedRecorrido: null,
+  selectedMaquina: null,
+  selectedChofer: null,
+
+  recorridos: function(){
+    return Correcaminos.Recorrido.find();
+  }.property(''),
+
+  maquinas: function(){
+    return Correcaminos.Maquina.find();
+  }.property(''),
+
+  choferes: function(){
+    return Correcaminos.Chofer.find();
+  }.property(''),
+
+  actions: {
+    create: function(){
+      console.log(this.selectedRecorrido.get('id'));
+    }
+  }
+});
+
+})();
+
+(function() {
+
+Correcaminos.Chofer.adapter = Ember.Adapter.create({
+  findAll: function(klass, recordArray){
+    var data = [
+      {id: 1, nombre: 'milton', apellido: 'inostroza'},
+      {id: 3, nombre: 'luis', apellido: 'flores'}      
+    ];
+    recordArray.load(klass, data);
+    return recordArray;
+  }
+});
+
+})();
+
+(function() {
+
+Correcaminos.Maquina.adapter = Ember.Adapter.create({
+  findAll: function(klass, recordArray){
+    var data = [
+      {id: 1, patente: 'PA-WE23'},
+      {id: 3, patente: 'LE-6523'}      
+    ];
+    recordArray.load(klass, data);
+    return recordArray;
+  }
+});
+
+})();
+
+(function() {
+
+Correcaminos.Recorrido.adapter = Ember.Adapter.create({
   findAll: function(klass, recordArray){
     var data = [
       {id: 1, name: 'recorrido 1'},
@@ -49,9 +130,9 @@ Despachador.Recorrido.adapter = Ember.Adapter.create({
 
 (function() {
 
-Despachador.ApplicationRoute = Ember.Route.extend({
+Correcaminos.ApplicationRoute = Ember.Route.extend({
   model: function() {
-    return Despachador.Recorrido.find();
+    return Correcaminos.Recorrido.find();
   }
  });
 
@@ -59,9 +140,9 @@ Despachador.ApplicationRoute = Ember.Route.extend({
 
 (function() {
 
-Despachador.RecorridosRoute = Ember.Route.extend({
+Correcaminos.DespachadorRoute = Ember.Route.extend({
   model: function(){
-    return Despachador.Recorrido.find();
+    return {};
   }
 })
 
@@ -69,8 +150,9 @@ Despachador.RecorridosRoute = Ember.Route.extend({
 
 (function() {
 
-Despachador.Router.map(function() {
-  this.route("recorridos", {path: "/recorridos"});
+Correcaminos.Router.map(function() {
+  this.route("despachador", {path: "/despachador"});
+  this.route("auditor", {path: "/auditor"});
 });
 
 })();

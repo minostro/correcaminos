@@ -1,4 +1,4 @@
-window.Despachador = Ember.Application.create();
+window.Correcaminos = Ember.Application.create();
 
 require('models/**/*');
 require('controllers/**');

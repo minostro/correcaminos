@@ -1,5 +1,6 @@
 require('routes/**');
 
-Despachador.Router.map(function() {
-  this.route("recorridos", {path: "/recorridos"});
+Correcaminos.Router.map(function() {
+  this.route("despachador", {path: "/despachador"});
+  this.route("auditor", {path: "/auditor"});
 });

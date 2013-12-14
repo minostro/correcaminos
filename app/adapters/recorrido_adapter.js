@@ -1,6 +1,6 @@
 require('models/recorrido');
 
-Despachador.Recorrido.adapter = Ember.Adapter.create({
+Correcaminos.Recorrido.adapter = Ember.Adapter.create({
   findAll: function(klass, recordArray){
     var data = [
       {id: 1, name: 'recorrido 1'},

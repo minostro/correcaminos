@@ -1,3 +1,3 @@
-Despachador.ApplicationController = Ember.ObjectController.extend({
+Correcaminos.ApplicationController = Ember.ObjectController.extend({
   searchTerm: null 
 });
