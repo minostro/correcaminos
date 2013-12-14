@@ -4,7 +4,7 @@
     {{view Ember.Select
        content=recorridos
        optionValuePath="content.id"
-       optionLabelPath="content.name"
+       optionLabelPath="content.nombre"
        selection=selectedRecorrido
        value=selectedRecorrido
        prompt="Seleccione un recorrido"}}
@@ -28,5 +28,16 @@
        prompt="Seleccione un chofer"}}
 
     <button {{action "create"}}>✓ Crear</button>       
+  </div>
+
+  <div>
+    <h3>Recorridos para el d&iacute;a de hoy</h3>
+    <ol>
+      {{#each}}
+      <li>
+        {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "delete"}}>✓ Eliminar</button>
+      </li>
+      {{/each}}
+    </ol>
   </div>
 </div>

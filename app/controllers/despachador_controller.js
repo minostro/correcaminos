@@ -1,6 +1,6 @@
-require('models/recorrido');
+Correcaminos.DespachadorController = Ember.ArrayController.extend({
+  itemController: 'despacho',
 
-Correcaminos.DespachadorController = Ember.ObjectController.extend({
   selectedRecorrido: null,
   selectedMaquina: null,
   selectedChofer: null,
