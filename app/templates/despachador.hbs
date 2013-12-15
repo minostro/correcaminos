@@ -34,9 +34,11 @@
     <h3>Despachos <strong>No</strong> confirmados para el d&iacute;a de hoy</h3>
     <ol>
       {{#each getDespachosNoConfirmados}}
-      <li>
-        {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "delete"}}>✓ Eliminar</button>
-      </li>
+        <li>
+          {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "delete"}}>✓ Eliminar</button>
+        </li>
+      {{else}}
+        No hay despachos pendientes.
       {{/each}}
     </ol>
   </div>
@@ -45,9 +47,11 @@
     <h3>Despachos confirmados para el d&iacute;a de hoy</h3>
     <ol>
       {{#each getDespachosConfirmados}}
-      <li>
-        {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "delete"}}>✓ Eliminar</button>
-      </li>
+        <li>
+          {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}}
+        </li>
+      {{else}}
+        No hay despachos confirmados.
       {{/each}}
     </ol>
   </div>
