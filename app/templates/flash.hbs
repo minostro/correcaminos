@@ -1,0 +1,7 @@
+{{#if message}}
+  {{#if successful}}
+    <div id="flash-message" class="notification success">{{message}}</div>
+  {{ else }}
+    <div id="flash-message" class="notification error">{{message}}</div>
+  {{/if}}
+{{/if}}

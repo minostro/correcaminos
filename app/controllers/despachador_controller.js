@@ -36,6 +36,7 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
         chofer: this.selectedChofer
       });
       despacho.save();
+      this.send('flashSuccess', 'Despacho creado');
     },
     delete: function(){
       var controller = this;
@@ -44,6 +45,7 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
         model.deleteRecord();
         model.save();
         controller.removeObjects(itemController);
+        controller.send('flashSuccess', 'Despacho eliminado');
       })
     }
   }

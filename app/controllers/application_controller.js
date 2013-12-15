@@ -1,3 +1,1 @@
-Correcaminos.ApplicationController = Ember.ObjectController.extend({
-  searchTerm: null 
-});
+Correcaminos.ApplicationController = Ember.ObjectController.extend({});
