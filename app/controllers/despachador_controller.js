@@ -1,3 +1,7 @@
+var isValid = function(data){
+  return data.filter(function(ele) {return ele == null}).length == 0;
+};
+
 Correcaminos.DespachadorController = Ember.ArrayController.extend({
   itemController: 'despacho',
 
@@ -25,9 +29,14 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
     return this.filterProperty('confirmado', true);
   }.property('@each.confirmado'),
 
-
   actions: {
     create: function(){
+      var controller = this;
+      if (!isValid([this.selectedRecorrido, this.selectedMaquina, this.selectedChofer])) {
+        controller.send('flashError', 'Todos los campos son obligatorios');
+        return false;
+      }
+
       var despacho = Correcaminos.Despacho.create({
         dia: "2013-12-12",
         confirmado: false,
@@ -36,7 +45,7 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
         chofer: this.selectedChofer
       });
       despacho.save();
-      this.send('flashSuccess', 'Despacho creado');
+      controller.send('flashSuccess', 'Despacho creado');
     },
     delete: function(){
       var controller = this;
