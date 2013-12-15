@@ -29,6 +29,18 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
     return this.filterProperty('confirmado', true);
   }.property('@each.confirmado'),
 
+  deleteDespacho: function(){
+    var controller = this;
+    this.filterProperty('isSelected').forEach(function(itemController){
+      var model = itemController.get('model');
+      model.deleteRecord();
+      model.save();
+      controller.removeObjects(itemController);
+      controller.send('closeModal');
+      controller.send('flashSuccess', 'Despacho eliminado');
+    })
+  },
+
   actions: {
     create: function(){
       var controller = this;
@@ -47,15 +59,13 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
       despacho.save();
       controller.send('flashSuccess', 'Despacho creado');
     },
-    delete: function(){
-      var controller = this;
-      this.filterProperty('isSelected').forEach(function(itemController){
-        var model = itemController.get('model');
-        model.deleteRecord();
-        model.save();
-        controller.removeObjects(itemController);
-        controller.send('flashSuccess', 'Despacho eliminado');
-      })
-    }
+    confirmDeleteDespacho: function(){
+      this.send("openModal", {
+        message: "seguro?",
+        confirmButtonText: "Delete Despacho",
+        target: this,
+        action: 'deleteDespacho'
+      });
+    },
   }
 });

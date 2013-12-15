@@ -16,6 +16,24 @@ Correcaminos.ApplicationRoute = Ember.Route.extend({
         into: 'application',
         outlet: 'flash'
       });
+    },
+    openModal: function(options){
+      this.controllerFor('modal').setProperties(options);
+
+      console.log(this.$);
+
+      this.render('modal', {
+        into: 'application',
+        outlet: 'modal'
+      });
+    },
+    closeModal: function(){
+      this.controllerFor('modal').reset();
+
+      this.render('empty', {
+        into: 'application',
+        outlet: 'modal'
+      });
     }
   }
  });

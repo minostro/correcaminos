@@ -35,7 +35,7 @@
     <ol>
       {{#each getDespachosNoConfirmados}}
         <li>
-          {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "delete"}}>✓ Eliminar</button>
+          {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "confirmDeleteDespacho"}}>✓ Eliminar</button>
         </li>
       {{else}}
         No hay despachos pendientes.
@@ -55,5 +55,4 @@
       {{/each}}
     </ol>
   </div>
-
 </div>

@@ -7,7 +7,7 @@ Correcaminos.DespachoController = Ember.ObjectController.extend({
       model.set('confirmado', true);
       model.save();
     },
-    delete: function(){
+    confirmDeleteDespacho: function(){
       this.isSelected = true;
       return true;
     }
