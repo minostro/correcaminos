@@ -27,17 +27,29 @@
        value=selectedChofer
        prompt="Seleccione un chofer"}}
 
-    <button {{action "create"}}>✓ Crear</button>       
+    <button {{action "create"}}>✓ Crear</button>
   </div>
 
   <div>
-    <h3>Recorridos para el d&iacute;a de hoy</h3>
+    <h3>Despachos <strong>No</strong> confirmados para el d&iacute;a de hoy</h3>
     <ol>
-      {{#each}}
+      {{#each getDespachosNoConfirmados}}
       <li>
         {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "delete"}}>✓ Eliminar</button>
       </li>
       {{/each}}
     </ol>
   </div>
+
+  <div>
+    <h3>Despachos confirmados para el d&iacute;a de hoy</h3>
+    <ol>
+      {{#each getDespachosConfirmados}}
+      <li>
+        {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirm"}}>✓ Confirmar</button> || <button {{action "delete"}}>✓ Eliminar</button>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+
 </div>

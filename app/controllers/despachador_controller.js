@@ -17,10 +17,20 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
     return Correcaminos.Chofer.find();
   }.property(''),
 
+  getDespachosNoConfirmados: function(){
+    return this.filterProperty('confirmado', false);
+  }.property('@each.confirmado'),
+
+  getDespachosConfirmados: function(){
+    return this.filterProperty('confirmado', true);
+  }.property('@each.confirmado'),
+
+
   actions: {
     create: function(){
       var despacho = Correcaminos.Despacho.create({
         dia: "2013-12-12",
+        confirmado: false,
         recorrido: this.selectedRecorrido,
         maquina: this.selectedMaquina,
         chofer: this.selectedChofer

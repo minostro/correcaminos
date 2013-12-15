@@ -3,10 +3,11 @@ Correcaminos.DespachoController = Ember.ObjectController.extend({
 
   actions: {
     confirm: function(){
-      console.log(this.get('chofer').get('nombre'));
+      var model = this.get('model');
+      model.set('confirmado', true);
+      model.save();
     },
     delete: function(){
-      console.log(this.get('chofer').get('nombre'));
       this.isSelected = true;
       return true;
     }
