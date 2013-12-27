@@ -75,7 +75,8 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
         message: "seguro?",
         confirmButtonText: "Delete Despacho",
         target: this,
-        action: 'deleteDispatch'
+        action: 'deleteDispatch',
+	model: this.filterProperty('isSelected', true)[0]
       })
     },
     confirmAcceptDispatch: function(){

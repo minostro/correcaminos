@@ -26,7 +26,10 @@ Correcaminos.ApplicationRoute = Ember.Route.extend({
       });
     },
     closeModal: function(){
-      this.controllerFor('modal').reset();
+      var controller = this.controllerFor('modal');
+      var model = controller.model;
+      model.set('isSelected', false);
+      controller.reset();
 
       this.render('empty', {
         into: 'application',
@@ -42,7 +45,10 @@ Correcaminos.ApplicationRoute = Ember.Route.extend({
       });
     },
     closeConfirmDispatchModal: function(){
-      this.controllerFor('confirm_dispatch').reset();
+      var controller = this.controllerFor('confirm_dispatch')
+      var model = controller.model
+      model.set('isSelected', false);
+      controller.reset();
 
       this.render('empty', {
         into: 'application',

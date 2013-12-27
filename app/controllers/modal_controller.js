@@ -7,6 +7,7 @@ Correcaminos.ModalController = Ember.Controller.extend({
   target: null,
   action: null,
   args: null,
+  model: null,
 
   actions: {
     confirm: function(){
@@ -22,7 +23,8 @@ Correcaminos.ModalController = Ember.Controller.extend({
       confirmButtonText: null,
       target: null,
       action: null,
-      args: null
+      args: null,
+      model: null
     });
   }
 });
