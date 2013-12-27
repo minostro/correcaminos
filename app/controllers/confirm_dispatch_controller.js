@@ -1,18 +1,16 @@
-Correcaminos.ModalController = Ember.Controller.extend({
-  cancelButtonText: "Cancel",
-  message: null,
-  title: null,
+Correcaminos.ConfirmDispatchController = Ember.Controller.extend({
+  cancelButtonText: "Cancelar",
   confirmButtonText: null,
-
+ 
+  model: null,
   target: null,
   action: null,
-  args: null,
-
+ 
   actions: {
     confirm: function(){
       var target = this.get('target');
       var action = this.get('action');
-      var args = this.get('args');
+      var args = [Ember.$('.clock').attr('currenttime')];
       target[action].apply(target, args);
     }
   },
@@ -22,7 +20,7 @@ Correcaminos.ModalController = Ember.Controller.extend({
       confirmButtonText: null,
       target: null,
       action: null,
-      args: null
+      model: null
     });
   }
 });

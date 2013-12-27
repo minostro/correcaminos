@@ -29,7 +29,7 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
     return this.filterProperty('confirmado', true);
   }.property('@each.confirmado'),
 
-  deleteDespacho: function(){
+  deleteDispatch: function(){
     var controller = this;
     this.filterProperty('isSelected').forEach(function(itemController){
       var model = itemController.get('model');
@@ -40,7 +40,18 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
       controller.send('flashSuccess', 'Despacho eliminado');
     })
   },
-
+  confirmDispatch: function(dispatched_at){
+    var controller = this;
+    this.filterProperty('isSelected').forEach(function(itemController){
+      var model = itemController.get('model');
+      model.set('confirmado', true);
+      model.set('dispatched_at', dispatched_at);
+      model.save();
+      controller.send('closeConfirmDispatchModal');
+      controller.send('flashSuccess', 'Despacho confirmado');
+    })
+  },
+ 
   actions: {
     create: function(){
       var controller = this;
@@ -59,13 +70,21 @@ Correcaminos.DespachadorController = Ember.ArrayController.extend({
       despacho.save();
       controller.send('flashSuccess', 'Despacho creado');
     },
-    confirmDeleteDespacho: function(){
+    confirmDeleteDispatch: function(){
       this.send("openModal", {
         message: "seguro?",
         confirmButtonText: "Delete Despacho",
         target: this,
-        action: 'deleteDespacho'
-      });
+        action: 'deleteDispatch'
+      })
     },
+    confirmAcceptDispatch: function(){
+      this.send("openConfirmDispatchModal",{
+        confirmButtonText: "Confirmar Despacho",
+        target: this,
+        action: 'confirmDispatch',
+        model: this.filterProperty('isSelected', true)[0]
+      })
+    }
   }
 });
