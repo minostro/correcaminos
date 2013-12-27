@@ -20,8 +20,6 @@ Correcaminos.ApplicationRoute = Ember.Route.extend({
     openModal: function(options){
       this.controllerFor('modal').setProperties(options);
 
-      console.log(this.$);
-
       this.render('modal', {
         into: 'application',
         outlet: 'modal'
