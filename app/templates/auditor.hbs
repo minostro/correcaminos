@@ -1,0 +1,47 @@
+<div class="container">
+  <div>
+    <span>Recorrido: </span>
+    {{view Ember.Select
+       content=despachos
+       optionValuePath="content.id"
+       optionLabelPath="content.id"
+       selection=selectedDespacho
+       value=selectedDespacho
+       prompt="Seleccione un despacho"}}
+  </div>
+
+  {{#if canShowDispatch}}
+    <div>
+      <span>Chofer :</span> {{chofer.nombre}} - {{chofer.apellido}}      
+      <span>M&aacute;quina :</span> {{maquina.patente}}
+      <span>Fecha despacho:</span> {{dispatched_at}}
+    </div>
+  {{/if}}
+</div>
+
+<!--  <div>
+    <h3>Despachos <strong>No</strong> confirmados para el d&iacute;a de hoy</h3>
+    <ol>
+      {{#each getDespachosNoConfirmados}}
+        <li>
+          {{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} || <button {{action "confirmAcceptDispatch"}}>✓ Confirmar</button> || <button {{action "confirmDeleteDispatch"}}>✓ Eliminar</button>
+        </li>
+      {{else}}
+        No hay despachos pendientes.
+      {{/each}}
+    </ol>
+  </div>
+
+  <div>
+    <h3>Despachos confirmados para el d&iacute;a de hoy</h3>
+    <ol>
+      {{#each getDespachosConfirmados}}
+        <li>
+	{{recorrido.nombre}} - {{maquina.patente}} - {{chofer.nombre}} - {{dispatched_at}}
+        </li>
+      {{else}}
+        No hay despachos confirmados.
+      {{/each}}
+    </ol>
+  </div>
+</div>-->
